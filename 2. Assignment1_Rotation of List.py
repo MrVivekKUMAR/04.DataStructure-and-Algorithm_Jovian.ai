@@ -12,16 +12,21 @@ def rotationList_Linier(lst):
 def count_rotations_binary(nums):
     lo = 0
     hi = len(nums) -1
+    if len(lst) < 2:
+        return 0
+    elif nums[0]<nums[hi]:
+        return 0
+
 
     while True:
+
         mid = (hi + lo) //2
         mid_number = nums[mid]
 
         # lst = [ _, 25_, 29, 3]
         # Uncomment the next line for logging the values and fixing errors.
         print("lo:", lo, ", hi:", hi, ", mid:", mid, ", mid_number:", mid_number)
-        #lst = [19, 25, 29, 3, 5, 6, 7, 9, 11, 14]
-       # lo: 2, hi: 3, mid: 2, mid_number: 29
+
 
         if mid > 0 and mid_number < nums[mid-1] :
             # The middle position is the answer
@@ -31,11 +36,11 @@ def count_rotations_binary(nums):
             # Answer lies in the left half
             hi = mid - 1
 
-        else:
+        elif mid_number > nums[hi]:
             # Answer lies in the right half
             lo = mid + 1
 
-    return -1
+    return 0
 
 # 1. List has 7 element (order), and rotated 3 time
 # lst = [0 , 2, 3, 4 , 5, 6, 9, 10]
@@ -44,7 +49,7 @@ def count_rotations_binary(nums):
 # lst = [2, 3, 4 , 5,6 , 9, 10 ,0 ]
 
 
-lst = [19, 25, 29, 3, 5, 6, 7, 9, 11,14]
+lst = [0 , 2, 3, 4 , 5, 6, 9, 10]
 
 print(rotationList_Linier(lst))
 print(count_rotations_binary(lst))
