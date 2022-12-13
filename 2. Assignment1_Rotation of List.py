@@ -12,9 +12,8 @@ def rotationList_Linier(lst):
 def count_rotations_binary(nums):
     lo = 0
     hi = len(nums) -1
-    if len(lst) < 2:
-        return 0
-    elif nums[0]<nums[hi]:
+    # to handle the List with no element and element without rotation
+    if len(nums) < 2 or nums[0]<nums[hi]:
         return 0
 
 
@@ -49,7 +48,7 @@ def count_rotations_binary(nums):
 # lst = [2, 3, 4 , 5,6 , 9, 10 ,0 ]
 
 
-lst = [0 , 2, 3, 4 , 5, 6, 9, 10]
+lst = []
 
 print(rotationList_Linier(lst))
 print(count_rotations_binary(lst))
